@@ -1,0 +1,127 @@
+<!--Include: 
+1. <input type="file">
+2. dropdown menus for filtering 
+3. Dropdown or buttons for sorting 
+4. A section to display the list of courses 
+5. a section to display details of a single selected course
+
+Logically planning an HTML file, the steps:
+
+Step 0: What does this webpage do? 
+Ans: Lets the user explore courses by filtering and sorting.
+
+Step 1: Identify the big sections
+
+Common:
+
+Header
+Filters / Controls
+Main content area
+Sidebar (optional)
+Footer
+
+Step 2: Draw the box diagram 
+
+On a piece of paper or tablet, draw boxes innside of boxes and write down their names, as per the big sections described above.
+
+Step 3: Label the boxes with IDs/Classes
+
+IDs = unique items
+Classes = items that can be reused (just like JS classes or an OPP class)
+
+Step 4: Convert each box to HTML skeleton
+
+Following code structures, look at your drawing and write code... something like this:
+
+<body>
+  <header></header>
+  <section id="filters"></section>
+  <main id="course-list"></main>
+  <footer></footer>
+</body>
+
+Step 5: fill in basic tags, like IDs, classes, and etc.
+
+Step 6: Stop HTMLing and go to JS. 
+Code your logic to every block. Test the logic out on your raw structure.
+
+Step 7: Polish with HTML/CSS
+Now you get to add style to your website. The strucutre is there and the logic is set. It's time to get creative so that your webpage stands out. 
+You first start by going to CSS and colouring the website into life. Then, if you think it's fit, you go back to HTML and modify the strucutre. Keep iterating between CSS and HTML until you think it's cool.
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Course Explorer Website</title>
+        <link rel="stylesheet" href="styles.css">    </head>
+    <body>
+        <h1>Course Explorer</h1>
+        <main>
+            <section id="controls">
+                <h2>Load Courses</h2>
+                <label for="file-input">Load course data (JSON):</label>
+                <input type="file" id="file-input" accept=".json">
+                <div id="select-file" class="hidden">
+                    <p>Please select a file.</p>
+                <div id="select-file" class="hidden">
+                    <p>Please select a file.</p>
+                </div>
+                <div id="error-message" class="hidden">
+                    <p>Invalid JSON file format.</p>
+                </div>
+                
+            </section>
+            <section id="filter-sort">
+                <h2>Filter and Sort</h2>
+                <label>Department</label>
+                <select id="department-filter">
+                    <option value="All">All</option>
+                    <!--For every new department input by user, a new option pops up.-->
+                </select>
+                <label>Level</label>
+                <select id="level-filter">
+                    <option value="All">All</option>
+                    <!--For every new level input by user, a new option pops up.-->
+                </select>
+                <label>Credits</label>
+                <select id="credits-filter">
+                    <option value="All">All</option>
+                    <!--For every new credits input by user, a new option pops up.-->
+                </select>
+                <label>Instructor</label>
+                <select id="instructor-filter">
+                    <option value="All">All</option>
+                    <!--For every new instructor input by user, a new option pops up.-->
+                </select>
+                <label>Sort By</label>
+                <select id="sorting-by"> 
+                    <option value="None">None</option>
+                    <option value="ID(A-Z)">ID (A-Z)</option>
+                    <option value="ID(Z-A)">ID (Z-A)</option>
+                    <option value="Title(A-Z)">Title (A-Z)</option>
+                    <option value="Title(Z-A)">Title (Z-A)</option>
+                    <option value="Semester(Earliest)">Semester (Earliest first)</option>
+                    <option value="Semester(Latest)">Semester (Latest first)</option>
+                </select>
+            </section>
+            <section id="course-list">
+                <ul id="course-container">
+                    <!--
+                    <li class="course-item">
+                        
+                        <button class="course-toggle">
+                            <h3>Course 1</h3>
+                        </button>
+                        <p>Description of Course 1</p>
+                        
+                    </li>
+                    -->
+                </ul>
+            </section>
+        </main>
+        <script src="script.js"></script>
+    </body>
+</html>
